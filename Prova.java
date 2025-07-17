@@ -25,19 +25,19 @@ public class Prova {
             numerosKyber = lerVetor(numerosKyber);
 
             numerosKyber = mergeSort(numerosKyber);
-            numerosKyber = inverterVetor(numerosKyber, 0, cristaisKyber-1);
+            numerosKyber = inverterVetor(numerosKyber, 0, cristaisKyber - 1);
 
             for (int i = 0; i < consultas; i++) {
                 int numero = teclado.nextInt();
                 int valor = numero;
-                numero = buscaBinaria(numerosKyber, numero, 0, cristaisKyber-1);
+                numero = buscaBinaria(numerosKyber, numero, 0, cristaisKyber - 1);
                 caso++;
-                System.out.println("CASE# "+caso+":");
-                if (numero==-1) {
-                    System.out.println(valor +" not found");
+                System.out.println("CASE# " + caso + ":");
+                if (numero == -1) {
+                    System.out.println(valor + " not found");
                     System.out.println();
                 } else {
-                    System.out.println(valor+" found at "+numero);
+                    System.out.println(valor + " found at " + numero);
                     System.out.println();
                 }
             }
@@ -47,19 +47,19 @@ public class Prova {
     }
 
     public static int buscaBinaria(int[] v, int num, int inicio, int fim) {
-        int meio = (inicio+fim)/2;
-        if (inicio==fim&&inicio!=num) {
+        int meio = (inicio + fim) / 2;
+        if (inicio == fim && inicio != num) {
             return -1;
         }
         if (v[meio] == num) {
-            while (meio>0 && v[meio-1] == num) {
-                meio --;
+            while (meio > 0 && v[meio - 1] == num) {
+                meio--;
             }
             return meio;
-        } else if (num<v[meio]) {
-            return buscaBinaria(v, num, inicio, meio-1);
+        } else if (num < v[meio]) {
+            return buscaBinaria(v, num, inicio, meio - 1);
         } else {
-            return buscaBinaria(v, num, meio+1, fim);
+            return buscaBinaria(v, num, meio + 1, fim);
         }
     }
 
